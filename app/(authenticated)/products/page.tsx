@@ -2,9 +2,11 @@ import React from 'react';
 
 // import { Container } from './styles';
 
-const productsPage: React.FC = () => {
+const productsPage = () => {
   return (
-    <div>This is Product Page</div>
+    <div className="pt-[50px]">
+      <h1>This is Products page</h1>
+    </div>
   );
 }
 
