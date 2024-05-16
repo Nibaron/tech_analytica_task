@@ -1,16 +1,19 @@
-'use client';
+"use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import logo from "@/assets/images/logo.png";
 import Image from "next/image";
 import { DashIcon } from "@/assets/icons";
 
 const Header: React.FC = () => {
-  const [activeLink, setActiveLink] = useState<string >("/products");
+  const [activeLink, setActiveLink] = useState<string>("/products");
+  const router = useRouter();
 
   const handleLinkClick = (link: string, event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     setActiveLink(link);
+    router.push(link);
   };
 
   return (
