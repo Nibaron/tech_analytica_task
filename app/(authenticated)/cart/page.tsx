@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import CartList from "@/conponents/cart/cart-list";
 import { CartItem as CartItemType } from "@/models/global-types";
+import CartComponent from "@/conponents/cart/cart-component";
 
 const initialItems: CartItemType[] = [
   {
@@ -30,32 +31,7 @@ const CartPage: React.FC = () => {
 
   return (
     <main className="min-h-screen pt-[80px] px-12">
-      <div className="flex flex-col items-center">
-        <div className="flex justify-center"></div>
-        <div className="p-6 border">
-          <div className="text-xl text-white font-semibold mb-4 text-center bg-black rounded px-4 py-2">
-            Selected Products
-          </div>
-          <CartList items={items} onRemove={handleRemoveItem} />
-          <div className="mt-4">
-            <input type="checkbox" id="terms" className="mr-2" />
-            <label htmlFor="terms">
-              I have read and agree to the{" "}
-              <span className="underline">
-                terms and conditions
-              </span>
-              , <span className="underline">refund policy</span> &{" "}
-              <span className="underline">privacy policy</span>
-            </label>
-            <br />
-            <div className="flex justify-center">
-              <button className="bg-black text-white px-4 py-2 rounded ml-4">
-                Checkout
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <CartComponent/>
     </main>
   );
 };

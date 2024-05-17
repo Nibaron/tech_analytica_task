@@ -1,6 +1,8 @@
-import { MultiViewIcon, SingleViewIcon } from "@/assets/icons";
+import { MultiViewIcon, SearchIcon, SingleViewIcon } from "@/assets/icons";
 import { MultiProductCard } from "@/conponents/card/MultiProductCard";
+import CartComponent from "@/conponents/cart/cart-component";
 import Pagination from "@/conponents/pagination";
+import SearchForm from "@/conponents/Search";
 import React from "react";
 
 const productsPage = () => {
@@ -9,7 +11,7 @@ const productsPage = () => {
       id: 1,
       name: "Sony Wh-Ch510 Bluetooth Wireless",
       price: 149,
-      image: "@/assets/images/1001.png",
+      image: "/assets/images/1001.png",
       description: "High-quality Bluetooth wireless headphones from Sony.",
     },
     {
@@ -49,12 +51,15 @@ const productsPage = () => {
       description: "Budget-friendly wired headphones from Zebronics.",
     },
   ];
+
   return (
     <main className="min-h-screen pt-[80px] px-12">
-      <div className="flex flex-row h-[90px]">
-        <div className="basis-3/5">
-          <div className="flex justify-between">
-            <div className="text-[30px]">Our All Products</div>
+      <div className="flex flex-col lg:flex-row h-auto lg:h-[90px]">
+        <div className="lg:basis-3/5 w-full">
+          <div className="flex justify-between mb-[24px]">
+            <span className="font-open-sans text-[32px] font-semibold leading-[21px] text-left">
+              Our All Products
+            </span>
             <div className="flex items-center justify-center space-x-4">
               <div className="group">
                 <a href="#">
@@ -69,50 +74,13 @@ const productsPage = () => {
             </div>
           </div>
 
-          <form className="max-w-full">
-            <label
-              htmlFor="default-search"
-              className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
-            >
-              Search
-            </label>
-            <div className="relative">
-              <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                <svg
-                  className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                  />
-                </svg>
-              </div>
-              <input
-                type="search"
-                id="default-search"
-                className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Search An Item"
-                required
-              />
-            </div>
-          </form>
+          <SearchForm />
           <section className="container mx-auto px-4 py-10 grid grid-cols-2 gap-4 lg:grid-cols-3">
-            {" "}
-            {/* Added container, grid, and gap classes */}
             {products.map((product) => (
               <div
                 key={product.id}
                 className="rounded-lg bg-white shadow-md overflow-hidden"
               >
-                {" "}
-                {/* Added classNames */}
                 <MultiProductCard
                   key={product.id}
                   name={product.name}
@@ -122,7 +90,12 @@ const productsPage = () => {
               </div>
             ))}
           </section>
-          <Pagination/>
+          <Pagination />
+        </div>
+        <div className="hidden lg:block lg:basis-2/5 pt-[137px]">
+          <section className="container mx-auto">
+            <CartComponent />
+          </section>
         </div>
       </div>
     </main>
