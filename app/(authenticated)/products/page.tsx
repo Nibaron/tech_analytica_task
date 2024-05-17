@@ -1,9 +1,54 @@
 import { MultiViewIcon, SingleViewIcon } from "@/assets/icons";
+import { MultiProductCard } from "@/conponents/card/MultiProductCard";
+import Pagination from "@/conponents/pagination";
 import React from "react";
 
-// import { Container } from './styles';
-
 const productsPage = () => {
+  const products = [
+    {
+      id: 1,
+      name: "Sony Wh-Ch510 Bluetooth Wireless",
+      price: 149,
+      image: "@/assets/images/1001.png",
+      description: "High-quality Bluetooth wireless headphones from Sony.",
+    },
+    {
+      id: 2,
+      name: "boAt Rockerz 450 wireless charging",
+      price: 49,
+      image: "/assets/images/1002.png",
+      description: "Affordable and stylish Bluetooth headphones from boAt.",
+    },
+    {
+      id: 3,
+      name: "JBL Tune 760NC",
+      price: 179,
+      image: "/assets/images/1003.png",
+      description: "Premium noise-canceling headphones from JBL.",
+    },
+    {
+      id: 4,
+      name: "Logitech H111 Wired",
+      price: 39,
+      image: "/assets/images/1004.png",
+      description: "Reliable wired headphones from Logitech.",
+    },
+    {
+      id: 5,
+      name: "APPLE Max Bluetooth Headset",
+      price: 199,
+      image: "/assets/images/1005.png",
+      description:
+        "Apple's high-end Bluetooth headset with active noise cancellation.",
+    },
+    {
+      id: 6,
+      name: "ZEBRONICS Zeb-Thunder Wired",
+      price: 29,
+      image: "/assets/images/1006.png",
+      description: "Budget-friendly wired headphones from Zebronics.",
+    },
+  ];
   return (
     <main className="min-h-screen pt-[80px] px-12">
       <div className="flex flex-row h-[90px]">
@@ -58,6 +103,26 @@ const productsPage = () => {
               />
             </div>
           </form>
+          <section className="container mx-auto px-4 py-10 grid grid-cols-2 gap-4 lg:grid-cols-3">
+            {" "}
+            {/* Added container, grid, and gap classes */}
+            {products.map((product) => (
+              <div
+                key={product.id}
+                className="rounded-lg bg-white shadow-md overflow-hidden"
+              >
+                {" "}
+                {/* Added classNames */}
+                <MultiProductCard
+                  key={product.id}
+                  name={product.name}
+                  price={product.price}
+                  image={product.image}
+                />
+              </div>
+            ))}
+          </section>
+          <Pagination/>
         </div>
       </div>
     </main>
