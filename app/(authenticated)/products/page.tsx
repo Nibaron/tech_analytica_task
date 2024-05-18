@@ -59,7 +59,7 @@ const ProductsPage = () => {
 
   return (
     <main className="min-h-screen pt-[80px] px-12">
-      <div className="flex flex-col lg:flex-row h-auto lg:h-[90px]">
+      <div className="flex flex-col lg:flex-row">
         <div className="lg:basis-3/5 w-full mr-3">
           <div className="flex justify-between mb-[24px]">
             <span className="font-open-sans text-[32px] font-semibold leading-[21px] text-left">
