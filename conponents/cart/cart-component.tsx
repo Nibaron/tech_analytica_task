@@ -30,7 +30,7 @@ const CartComponent: React.FC = () => {
   return (
     <div className="flex flex-col items-center">
       <div className="p-1 border rounded">
-        <div className="font-inter text-[12px] font-bold leading-[20px] tracking-[2px] text-center text-white mb-4 bg-black rounded px-4 py-2">
+        <div className="font-inter text-[12px] font-bold leading-[20px] tracking-[2px] text-center text-white mb-4 bg-slate-900 rounded px-4 py-2">
           Selected Products
         </div>
 
@@ -45,7 +45,7 @@ const CartComponent: React.FC = () => {
           </label>
           <br />
           <div className="flex justify-center">
-            <button className="font-inter text-[12px] font-bold leading-[20px] tracking-[2px] text-left bg-black text-white px-4 py-2 rounded ml-4">
+            <button className="font-inter text-[12px] font-bold leading-[20px] tracking-[2px] text-left bg-slate-900 text-white px-4 py-2 rounded ml-4">
               Checkout
             </button>
           </div>

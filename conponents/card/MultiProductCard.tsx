@@ -31,7 +31,7 @@ export const MultiProductCard: React.FC<ProductCardProps> = ({
           {" "}
           {/* Added flex-wrap for sm */}
           <p className="mr-2 text-lg font-semibold text-red-600">$8.50</p>
-          <button className="rounded-lg bg-black px-5 py-2.5 text-center text-sm font-medium text-white ">
+          <button className="rounded-lg bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white ">
             Add to cart
           </button>
         </div>

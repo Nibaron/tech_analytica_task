@@ -32,7 +32,7 @@ export const SingleProductCard: React.FC<ProductCardProps> = ({
           </p>
         </div>
       </div>
-      <button className="rounded-lg bg-black mr-2 mb-6 px-5 py-2.5 text-center text-sm font-medium text-white">
+      <button className="rounded-lg bg-slate-900 mr-2 mb-6 px-5 py-2.5 text-center text-sm font-medium text-white">
         Add to cart
       </button>
     </div>
