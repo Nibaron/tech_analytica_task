@@ -1,61 +1,38 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { MultiViewIcon, SingleViewIcon } from "@/assets/icons";
 import { MultiProductCard } from "@/conponents/card/MultiProductCard";
 import { SingleProductCard } from "@/conponents/card/SingleProductCard";
 import CartComponent from "@/conponents/cart/cart-component";
 import Pagination from "@/conponents/pagination";
 import SearchForm from "@/conponents/Search";
-import { useState } from "react";
+
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  image: string;
+  description: string;
+}
 
 const ProductsPage = () => {
   const [viewMode, setViewMode] = useState("multi");
+  const [products, setProducts] = useState<Product[]>([]);
 
-  const products = [
-    {
-      id: 1,
-      name: "Sony Wh-Ch510 Bluetooth Wireless",
-      price: 149,
-      image: "/assets/images/1001.png",
-      description: "High-quality Bluetooth wireless headphones from Sony.",
-    },
-    {
-      id: 2,
-      name: "boAt Rockerz 450 wireless charging",
-      price: 49,
-      image: "/assets/images/1002.png",
-      description: "Affordable and stylish Bluetooth headphones from boAt.",
-    },
-    {
-      id: 3,
-      name: "JBL Tune 760NC",
-      price: 179,
-      image: "/assets/images/1003.png",
-      description: "Premium noise-canceling headphones from JBL.",
-    },
-    {
-      id: 4,
-      name: "Logitech H111 Wired",
-      price: 39,
-      image: "/assets/images/1004.png",
-      description: "Reliable wired headphones from Logitech.",
-    },
-    {
-      id: 5,
-      name: "APPLE Max Bluetooth Headset",
-      price: 199,
-      image: "/assets/images/1005.png",
-      description:
-        "Apple's high-end Bluetooth headset with active noise cancellation.",
-    },
-    {
-      id: 6,
-      name: "ZEBRONICS Zeb-Thunder Wired",
-      price: 29,
-      image: "/assets/images/1006.png",
-      description: "Budget-friendly wired headphones from Zebronics.",
-    },
-  ];
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get("https://fakestoreapi.com/products");
+        setProducts(response.data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   return (
     <main className="min-h-screen pt-[80px] px-12">
@@ -87,7 +64,7 @@ const ProductsPage = () => {
                 : "grid-cols-2 lg:grid-cols-3"
             }`}
           >
-            {products.map((product) => (
+            {products.slice(0, 6).map((product) => (
               <div
                 key={product.id}
                 className="rounded-lg bg-white shadow-md overflow-hidden"
@@ -95,14 +72,14 @@ const ProductsPage = () => {
                 {viewMode === "single" ? (
                   <SingleProductCard
                     key={product.id}
-                    name={product.name}
+                    name={product.title}
                     price={product.price}
                     image={product.image}
                   />
                 ) : (
                   <MultiProductCard
                     key={product.id}
-                    name={product.name}
+                    name={product.title}
                     price={product.price}
                     image={product.image}
                   />

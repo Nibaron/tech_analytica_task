@@ -19,7 +19,7 @@ export const SingleProductCard: React.FC<ProductCardProps> = ({
       <div className="flex items-center ">
         <Image src={img} alt="" width={300} className="object-cover" />
         <div className="p-4">
-          <h2 className="mb-2 text-lg font-medium">{`Wireless Bluetooth Headset Single Ear`}</h2>
+          <h2 className="mb-2 text-lg font-medium">{`${name}`}</h2>
           <div className="flex items-center space-x-1 rtl:space-x-reverse">
             <FiveStarIcon />
           </div>
@@ -28,7 +28,7 @@ export const SingleProductCard: React.FC<ProductCardProps> = ({
           </p>
 
           <p className="text-lg font-semibold text-red-600 dark:text-white">
-            $8.50
+            {`$ ${price}`}
           </p>
         </div>
       </div>
