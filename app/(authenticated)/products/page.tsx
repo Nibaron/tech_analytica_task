@@ -112,7 +112,7 @@ const ProductsPage = () => {
           </section>
           <Pagination />
         </div>
-        <div className="hidden lg:block lg:basis-2/5 pt-[137px]">
+        <div className="hidden lg:block lg:basis-2/5 pt-[130px]">
           <section className="container mx-auto">
             <CartComponent />
           </section>
