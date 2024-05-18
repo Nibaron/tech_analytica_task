@@ -2,31 +2,10 @@
 
 import React, { useState } from "react";
 import CartList from "@/conponents/cart/cart-list";
-import { CartItem as CartItemType } from "@/models/global-types";
 
-const initialItems: CartItemType[] = [
-  {
-    id: 1,
-    name: "Wireless Bluetooth Headset Single Ear",
-    price: 8.5,
-    quantity: 1,
-    image: "/path-to-image.jpg",
-  },
-  {
-    id: 2,
-    name: "Wireless Bluetooth Headset Single Ear",
-    price: 8.5,
-    quantity: 1,
-    image: "/path-to-image.jpg",
-  },
-];
+
 
 const CartComponent: React.FC = () => {
-  const [items, setItems] = useState<CartItemType[]>(initialItems);
-
-  const handleRemoveItem = (id: number) => {
-    setItems(items.filter((item) => item.id !== id));
-  };
   return (
     <div className="flex flex-col items-center">
       <div className="p-1 border rounded">
@@ -34,7 +13,7 @@ const CartComponent: React.FC = () => {
           Selected Products
         </div>
 
-        <CartList items={items} onRemove={handleRemoveItem} />
+        <CartList/>
         <div className="mt-4">
           <input type="checkbox" id="terms" className="mr-2" />
           <label htmlFor="terms">

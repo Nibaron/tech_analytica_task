@@ -2,18 +2,27 @@ import React from "react";
 import img from "@/assets/images/1002.png";
 import Image from "next/image";
 import { FiveStarIcon } from "@/assets/icons";
+import { getCartItems, setCartItems } from "@/utils/helpers/common-helpers";
 
 interface ProductCardProps {
+  key: number;
   name: string;
   price: number;
   image: string;
 }
 
 export const SingleProductCard: React.FC<ProductCardProps> = ({
+  key,
   name,
   price,
   image,
 }) => {
+  const handleAddToCart = () => {
+    const item = { key, name, price, image };
+    const currentCartItems = getCartItems();
+    const updatedCartItems = [...currentCartItems, item];
+    setCartItems(updatedCartItems);
+  };
   return (
     <div className="flex items-end justify-between p-0 border rounded bg-gray-200">
       <div className="flex items-center ">
@@ -32,7 +41,10 @@ export const SingleProductCard: React.FC<ProductCardProps> = ({
           </p>
         </div>
       </div>
-      <button className="rounded-lg bg-slate-900 mr-2 mb-6 px-5 py-2.5 text-center text-sm font-medium text-white">
+      <button
+        className="rounded-lg bg-slate-900 mr-2 mb-6 px-5 py-2.5 text-center text-sm font-medium text-white"
+        onClick={handleAddToCart}
+      >
         Add to cart
       </button>
     </div>

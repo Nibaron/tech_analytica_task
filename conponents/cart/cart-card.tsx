@@ -9,7 +9,7 @@ interface CartItemProps {
   onRemove: (id: number) => void;
 }
 
-const CartItem: React.FC<CartItemProps> = ({ item, onRemove }) => {
+const CartCard: React.FC<CartItemProps> = ({ item, onRemove }) => {
   return (
     <div className="flex items-center justify-between mb-4 bg-gray-200 shadow-md rounded-lg">
       {" "}
@@ -44,11 +44,11 @@ const CartItem: React.FC<CartItemProps> = ({ item, onRemove }) => {
           </p>
         </div>
       </div>
-      <div className="cursor-pointer" onClick={() => onRemove(item.id)}>
+      <button className="cursor-pointer" onClick={() => onRemove(item.id)}>
         <TrashIcon /> {/* Trash icon */}
-      </div>
+      </button>
     </div>
   );
 };
 
-export default CartItem;
+export default CartCard;

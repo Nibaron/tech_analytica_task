@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { MultiViewIcon, SingleViewIcon } from "@/assets/icons";
 import { MultiProductCard } from "@/conponents/card/MultiProductCard";
 import { SingleProductCard } from "@/conponents/card/SingleProductCard";
 import CartComponent from "@/conponents/cart/cart-component";
 import Pagination from "@/conponents/pagination";
 import SearchForm from "@/conponents/Search";
+import ProductsService from "@/services/product-service";
 
 interface Product {
   id: number;
@@ -16,30 +16,18 @@ interface Product {
   image: string;
   description: string;
 }
-
 const ProductsPage = () => {
   const [viewMode, setViewMode] = useState("multi");
   const [products, setProducts] = useState<Product[]>([]);
+  const [error, setError] = useState<any>(null);
 
-  // Fetch products from API or use session storage if available
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        // Check if products are already stored in session storage
-        const storedProducts = sessionStorage.getItem("products");
-        if (storedProducts) {
-          setProducts(JSON.parse(storedProducts));
-          console.log("Products loaded from session storage");
-        } else {
-          // Fetch products from API if not in session storage
-          const response = await axios.get("https://fakestoreapi.com/products");
-          setProducts(response.data);
-          sessionStorage.setItem("products", JSON.stringify(response.data));
-          console.log(
-            "Products fetched from API and stored in session storage"
-          );
-        }
+        const fetchedProducts = await ProductsService.getProducts();
+        setProducts(fetchedProducts);
       } catch (error) {
+        setError(error);
         console.error("Error fetching products:", error);
       }
     };
