@@ -19,7 +19,8 @@ const CartItem: React.FC<CartItemProps> = ({ item, onRemove }) => {
         <Image
           src={img}
           alt={item.name}
-          className=" object-cover w-full h-full"
+          width={300}
+          className="w-full h-full object-cover"
         />
       </div>
       <div className="flex flex-col justify-between h-full">

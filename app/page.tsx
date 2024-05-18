@@ -6,5 +6,3 @@ export default function Home() {
     redirect(PAGE_ROUTES.Products)
   );
 };
-
-
