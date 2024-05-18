@@ -1,5 +1,6 @@
-import { MultiViewIcon, SearchIcon, SingleViewIcon } from "@/assets/icons";
+import { MultiViewIcon, SingleViewIcon } from "@/assets/icons";
 import { MultiProductCard } from "@/conponents/card/MultiProductCard";
+import { SingleProductCard } from "@/conponents/card/SingleProductCard";
 import CartComponent from "@/conponents/cart/cart-component";
 import Pagination from "@/conponents/pagination";
 import SearchForm from "@/conponents/Search";
@@ -55,7 +56,8 @@ const productsPage = () => {
   return (
     <main className="min-h-screen pt-[80px] px-12">
       <div className="flex flex-col lg:flex-row h-auto lg:h-[90px]">
-        <div className="lg:basis-3/5 w-full">
+        <div className="lg:basis-3/5 w-full mr-3">
+          
           <div className="flex justify-between mb-[24px]">
             <span className="font-open-sans text-[32px] font-semibold leading-[21px] text-left">
               Our All Products
@@ -73,9 +75,9 @@ const productsPage = () => {
               </div>
             </div>
           </div>
-
           <SearchForm />
-          <section className="container mx-auto px-4 py-10 grid grid-cols-2 gap-4 lg:grid-cols-3">
+
+          <section className="py-10 grid grid-cols-2 gap-4 lg:grid-cols-3">
             {products.map((product) => (
               <div
                 key={product.id}
@@ -87,6 +89,12 @@ const productsPage = () => {
                   price={product.price}
                   image={product.image}
                 />
+                {/* <SingleProductCard
+                key={product.id}
+                name={product.name}
+                price={product.price}
+                image={product.image}
+              /> */}
               </div>
             ))}
           </section>

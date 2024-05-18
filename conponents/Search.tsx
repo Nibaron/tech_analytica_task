@@ -11,14 +11,14 @@ const SearchForm: React.FC = () => {
               Search
             </label>
             <div className="relative">
-              <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+              <div className="p-1 absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                 <SearchIcon/>
               </div>
               <input
                 type="search"
                 id="default-search"
-                className="block w-full font-normal leading-[20.2px] text-center text-gray-900 bg-gray-50 border ps-10 text-sm border-gray-300 rounded-xl "
-                placeholder="Search An Item"
+                className="block w-full font-normal leading-[20.2px] text-gray-900 bg-gray-50 border ps-10 text-sm border-gray-300 rounded-lg "
+                placeholder="      Search An Item"
                 required
               />
             </div>
