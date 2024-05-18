@@ -2,35 +2,34 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import logo from "@/assets/images/logo.png";
-import Image from "next/image";
-import { DashIcon } from "@/assets/icons";
+import { DashIcon, LogoSite } from "@/assets/icons";
 
 const Header: React.FC = () => {
   const [activeLink, setActiveLink] = useState<string>("/products");
   const router = useRouter();
 
-  const handleLinkClick = (link: string, event: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleLinkClick = (
+    link: string,
+    event: React.MouseEvent<HTMLAnchorElement>
+  ) => {
     event.preventDefault();
     setActiveLink(link);
     router.push(link);
   };
 
   return (
-    <nav className="bg-slate-900 fixed w-full z-20 top-0 start-0 ">
-      <div className="flex flex-wrap items-center justify-between mx-auto p-[12px]">
-        <Image src={logo} alt="Logo" width={150} />
+    <nav className="bg-slate-900 fixed w-full z-20">
+      <div className="flex items-center justify-between px-12">
+        <LogoSite />
         <div
           className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
           id="navbar-sticky"
         >
-          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
+          <ul className="flex flex-col md:p-0 mt-4 font-medium border md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
             <li>
               <a
                 href="/products"
-                className={`block py-2 px-3 text-white relative ${
-                  activeLink === "/products" ? "font-bold" : ""
-                }`}
+                className={"block p-2 text-white relative"}
                 aria-current="page"
                 onClick={(e) => handleLinkClick("/products", e)}
               >
@@ -41,9 +40,7 @@ const Header: React.FC = () => {
             <li>
               <a
                 href="/cart"
-                className={`block py-2 px-3 text-white relative ${
-                  activeLink === "/cart" ? "font-bold" : ""
-                }`}
+                className={`block py-2 px-3 text-white relative`}
                 aria-current="page"
                 onClick={(e) => handleLinkClick("/cart", e)}
               >
@@ -56,7 +53,7 @@ const Header: React.FC = () => {
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <button
             type="button"
-            className="m-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="m-4 text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-md text-sm px-4 py-2 text-center"
           >
             LOGIN
           </button>

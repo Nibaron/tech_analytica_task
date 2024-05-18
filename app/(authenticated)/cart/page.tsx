@@ -1,13 +1,39 @@
-import React from "react";
+"use client";
 
-// import { Container } from './styles';
+import React, { useState } from "react";
+import CartList from "@/conponents/cart/cart-list";
+import { CartItem as CartItemType } from "@/models/global-types";
+import CartComponent from "@/conponents/cart/cart-component";
 
-const cartPage: React.FC = () => {
+const initialItems: CartItemType[] = [
+  {
+    id: 1,
+    name: "Wireless Bluetooth Headset Single Ear",
+    price: 8.5,
+    quantity: 1,
+    image: "/path-to-image.jpg",
+  },
+  {
+    id: 2,
+    name: "Wireless Bluetooth Headset Single Ear",
+    price: 8.5,
+    quantity: 1,
+    image: "/path-to-image.jpg",
+  },
+];
+
+const CartPage: React.FC = () => {
+  const [items, setItems] = useState<CartItemType[]>(initialItems);
+
+  const handleRemoveItem = (id: number) => {
+    setItems(items.filter((item) => item.id !== id));
+  };
+
   return (
-    <div className="pt-[50px]">
-      <h1>This is cart page</h1>
-    </div>
+    <main className="min-h-screen pt-[80px] px-12">
+      <CartComponent/>
+    </main>
   );
 };
 
-export default cartPage;
+export default CartPage;

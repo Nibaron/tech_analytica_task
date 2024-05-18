@@ -8,6 +8,11 @@ const config: Config = {
     flowbite.content(),
   ],
   theme: {
+    screens: {
+      'sm': '300px',
+      'md': '600px',
+      'lg': '1070px',
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
