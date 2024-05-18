@@ -22,7 +22,7 @@ const CartCard: React.FC<CartItemProps> = ({ item, onRemove }) => {
       </div>
       <div className="flex flex-col justify-between h-full">
         <div className="p-4">
-          <h2 className="text-lg font-medium mb-2">{item.name}</h2>
+          <h2 className="text-lg font-medium mb-2">{`Wireless Bluetooth Headset Single Ear`}</h2>
           <div className="flex items-center space-x-1 rtl:space-x-reverse">
             <FiveStarIcon />
           </div>

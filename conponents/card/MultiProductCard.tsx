@@ -31,13 +31,13 @@ export const MultiProductCard: React.FC<ProductCardProps> = ({
         alt="Product Image"
       />
       <div className="p-4">
-        <h2 className="mb-2 text-lg font-medium">{name}</h2>
+        <h2 className="mb-2 text-lg font-medium">{`Wireless Bluetooth Headset Single Ear`}</h2>
         <div className="flex items-center space-x-1 rtl:space-x-reverse">
           <FiveStarIcon />
         </div>
         <p className="mb-2 text-base text-gray-700">(121 reviews)</p>
         <div className="flex flex-wrap items-center justify-between">
-          <p className="mr-2 text-lg font-semibold text-red-600">{`$ ${price}`}</p>
+          <p className="mr-2 text-lg font-semibold text-red-600">{`$ ${price.toFixed(2)}`}</p>
           <button
             className="rounded-lg bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white"
             onClick={handleAddToCart}
