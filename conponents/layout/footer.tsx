@@ -6,7 +6,6 @@ import {
   PinterestIcon,
   TwitterIcon,
 } from "@/assets/icons";
-import Image from "next/image";
 
 export const Footer = () => {
   return (
