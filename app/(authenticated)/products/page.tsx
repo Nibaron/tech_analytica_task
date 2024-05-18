@@ -72,14 +72,14 @@ const ProductsPage = () => {
               >
                 {viewMode === "single" ? (
                   <SingleProductCard
-                    key={product.id}
+                    id={product.id}
                     name={product.title}
                     price={product.price}
                     image={product.image}
                   />
                 ) : (
                   <MultiProductCard
-                    key={product.id}
+                    id={product.id}
                     name={product.title}
                     price={product.price}
                     image={product.image}

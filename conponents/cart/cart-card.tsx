@@ -12,10 +12,7 @@ interface CartItemProps {
 const CartCard: React.FC<CartItemProps> = ({ item, onRemove }) => {
   return (
     <div className="flex items-center justify-between mb-4 bg-gray-200 shadow-md rounded-lg">
-      {" "}
-      {/* Main container */}
       <div className="flex items-center w-48 h-48 overflow-auto rounded-lg mr-4">
-        {/* Image container */}
         <Image
           src={img}
           alt={item.name}
@@ -24,28 +21,17 @@ const CartCard: React.FC<CartItemProps> = ({ item, onRemove }) => {
         />
       </div>
       <div className="flex flex-col justify-between h-full">
-        {" "}
-        {/* Content container */}
         <div className="p-4">
-          {" "}
-          {/* Product details */}
           <h2 className="text-lg font-medium mb-2">{item.name}</h2>
           <div className="flex items-center space-x-1 rtl:space-x-reverse">
-            <FiveStarIcon /> {/* Rating icon */}
+            <FiveStarIcon />
           </div>
-          <p className="text-base text-gray-500 mb-2">
-            {" "}
-            {/* Reviews */}
-            (121 reviews)
-          </p>{" "}
-          {/* Price and trash */}
-          <p className="text-lg font-semibold text-red-500 mr-2">
-            ${item.price}
-          </p>
+          <p className="text-base text-gray-500 mb-2">(121 reviews)</p>
+          <p className="text-lg font-semibold text-red-500 mr-2">${item.price}</p>
         </div>
       </div>
       <button className="cursor-pointer" onClick={() => onRemove(item.id)}>
-        <TrashIcon /> {/* Trash icon */}
+        <TrashIcon />
       </button>
     </div>
   );

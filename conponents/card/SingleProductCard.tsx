@@ -5,20 +5,20 @@ import { FiveStarIcon } from "@/assets/icons";
 import { getCartItems, setCartItems } from "@/utils/helpers/common-helpers";
 
 interface ProductCardProps {
-  key: number;
+  id: number;
   name: string;
   price: number;
   image: string;
 }
 
 export const SingleProductCard: React.FC<ProductCardProps> = ({
-  key,
+  id,
   name,
   price,
   image,
 }) => {
   const handleAddToCart = () => {
-    const item = { key, name, price, image };
+    const item = { id, name, price, image };
     const currentCartItems = getCartItems();
     const updatedCartItems = [...currentCartItems, item];
     setCartItems(updatedCartItems);
