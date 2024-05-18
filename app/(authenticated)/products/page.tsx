@@ -1,12 +1,16 @@
+"use client";
+
 import { MultiViewIcon, SingleViewIcon } from "@/assets/icons";
 import { MultiProductCard } from "@/conponents/card/MultiProductCard";
 import { SingleProductCard } from "@/conponents/card/SingleProductCard";
 import CartComponent from "@/conponents/cart/cart-component";
 import Pagination from "@/conponents/pagination";
 import SearchForm from "@/conponents/Search";
-import React from "react";
+import { useState } from "react";
 
-const productsPage = () => {
+const ProductsPage = () => {
+  const [viewMode, setViewMode] = useState("multi");
+
   const products = [
     {
       id: 1,
@@ -57,19 +61,18 @@ const productsPage = () => {
     <main className="min-h-screen pt-[80px] px-12">
       <div className="flex flex-col lg:flex-row h-auto lg:h-[90px]">
         <div className="lg:basis-3/5 w-full mr-3">
-          
           <div className="flex justify-between mb-[24px]">
             <span className="font-open-sans text-[32px] font-semibold leading-[21px] text-left">
               Our All Products
             </span>
             <div className="flex items-center justify-center space-x-4">
               <div className="group">
-                <a href="#">
+                <a href="#" onClick={() => setViewMode("multi")}>
                   <MultiViewIcon />
                 </a>
               </div>
               <div className="group">
-                <a href="#">
+                <a href="#" onClick={() => setViewMode("single")}>
                   <SingleViewIcon />
                 </a>
               </div>
@@ -77,24 +80,33 @@ const productsPage = () => {
           </div>
           <SearchForm />
 
-          <section className="py-10 grid grid-cols-2 gap-4 lg:grid-cols-3">
+          <section
+            className={`py-10 grid gap-4 ${
+              viewMode === "single"
+                ? "grid-cols-1"
+                : "grid-cols-2 lg:grid-cols-3"
+            }`}
+          >
             {products.map((product) => (
               <div
                 key={product.id}
                 className="rounded-lg bg-white shadow-md overflow-hidden"
               >
-                <MultiProductCard
-                  key={product.id}
-                  name={product.name}
-                  price={product.price}
-                  image={product.image}
-                />
-                {/* <SingleProductCard
-                key={product.id}
-                name={product.name}
-                price={product.price}
-                image={product.image}
-              /> */}
+                {viewMode === "single" ? (
+                  <SingleProductCard
+                    key={product.id}
+                    name={product.name}
+                    price={product.price}
+                    image={product.image}
+                  />
+                ) : (
+                  <MultiProductCard
+                    key={product.id}
+                    name={product.name}
+                    price={product.price}
+                    image={product.image}
+                  />
+                )}
               </div>
             ))}
           </section>
@@ -110,4 +122,4 @@ const productsPage = () => {
   );
 };
 
-export default productsPage;
+export default ProductsPage;
