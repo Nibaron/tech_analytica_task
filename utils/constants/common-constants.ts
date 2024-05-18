@@ -1,4 +1,4 @@
 export const PAGE_ROUTES = {
-    Products: '/dproducts',
+    Products: '/products',
     Cart: '/cart',
   };

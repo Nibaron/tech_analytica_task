@@ -20,6 +20,7 @@ const CartItem: React.FC<CartItemProps> = ({ item, onRemove }) => {
         <Image
           src={img}
           alt={item.name}
+          width={300}
           className="w-full h-full object-cover"
         />
       </div>

@@ -15,14 +15,9 @@ export const SingleProductCard: React.FC<ProductCardProps> = ({
   image,
 }) => {
   return (
-    <div className="flex items-center justify-between p-0 border rounded">
+    <div className="flex items-end justify-between p-0 border rounded bg-gray-200">
       <div className="flex items-center ">
-        <Image
-          src={img}
-          alt=""
-          width={300}
-          className="object-cover mr-4 rounded"
-        />
+        <Image src={img} alt="" width={300} className="object-cover" />
         <div className="p-4">
           <h2 className="mb-2 text-lg font-medium">{`Wireless Bluetooth Headset Single Ear`}</h2>
           <div className="flex items-center space-x-1 rtl:space-x-reverse">
@@ -31,19 +26,15 @@ export const SingleProductCard: React.FC<ProductCardProps> = ({
           <p className="mb-2 text-base dark:text-gray-300 text-gray-700">
             (121 reviews)
           </p>
-          <div className="flex items-center justify-between">
-            <p className="text-lg font-semibold text-red-600 dark:text-white">
-              $8.50
-            </p>
-            <a
-              href="#"
-              className="rounded-lg bg-black px-5 py-2.5 text-center text-sm font-medium text-white"
-            >
-              Add to cart
-            </a>
-          </div>
+
+          <p className="text-lg font-semibold text-red-600 dark:text-white">
+            $8.50
+          </p>
         </div>
       </div>
+      <button className="rounded-lg bg-black mr-2 mb-6 px-5 py-2.5 text-center text-sm font-medium text-white">
+        Add to cart
+      </button>
     </div>
   );
 };

@@ -1,26 +1,22 @@
 import {
   FacebookIcon,
   InstagramIcon,
-  Logo,
+  LogoSite,
   PinterestIcon,
   TwitterIcon,
 } from "@/assets/icons";
-import logo from "@/assets/images/logo.png";
-import Image from "next/image";
 
 export const Footer = () => {
   return (
-    <footer className="bg-black fixed bottom-0 w-full">
+    <footer className="bg-black w-full">
       {/** Container */}
       <div className="container max-w-6xl py-10 mx-auto">
         {/** Footer Flex Container */}
         <div className="flex flex-col items-center mb-8 space-y-6 md:flex-row md:space-y-0 md:justify-between md:items-start">
           {/** Menu & Logo Container */}
-          < div className="flex flex-col items-center space-y-8 md:items-start md:space-y-4">
+          <div className="flex flex-col items-center space-y-8 md:items-start md:space-y-4">
             {/** Logo */}
-      
-              <Image src={logo} alt="img"/>
-            
+            <LogoSite />
           </div>
 
           {/** Social & Copy Container */}

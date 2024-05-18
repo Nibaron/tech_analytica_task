@@ -13,9 +13,9 @@ export default async function AuthenticatedLayout({
         <Header />
       </div>
       <Main>{children}</Main>
-      {/* <div className=" bg-black">
+      <div className=" bg-slate-900">
         <Footer />
-      </div> */}
+      </div>
     </>
   );
 }
