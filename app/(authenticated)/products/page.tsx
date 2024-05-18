@@ -21,11 +21,24 @@ const ProductsPage = () => {
   const [viewMode, setViewMode] = useState("multi");
   const [products, setProducts] = useState<Product[]>([]);
 
+  // Fetch products from API or use session storage if available
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("https://fakestoreapi.com/products");
-        setProducts(response.data);
+        // Check if products are already stored in session storage
+        const storedProducts = sessionStorage.getItem("products");
+        if (storedProducts) {
+          setProducts(JSON.parse(storedProducts));
+          console.log("Products loaded from session storage");
+        } else {
+          // Fetch products from API if not in session storage
+          const response = await axios.get("https://fakestoreapi.com/products");
+          setProducts(response.data);
+          sessionStorage.setItem("products", JSON.stringify(response.data));
+          console.log(
+            "Products fetched from API and stored in session storage"
+          );
+        }
       } catch (error) {
         console.error("Error fetching products:", error);
       }
