@@ -11,11 +11,10 @@ interface CartItemProps {
 
 const CartItem: React.FC<CartItemProps> = ({ item, onRemove }) => {
   return (
-    <div className="flex flex-row items-center justify-between mb-4 bg-gray-200 shadow-md rounded-lg overflow-hidden h-64">
+    <div className="flex items-center justify-between mb-4 bg-gray-200 shadow-md rounded-lg">
       {" "}
       {/* Main container */}
-      <div className="w-48 h-48 rounded-lg overflow-hidden mr-4">
-        {" "}
+      <div className="flex items-center w-48 h-48 overflow-auto rounded-lg mr-4">
         {/* Image container */}
         <Image
           src={img}

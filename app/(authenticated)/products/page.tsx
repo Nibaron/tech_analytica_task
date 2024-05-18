@@ -10,6 +10,10 @@ import { useState } from "react";
 
 const ProductsPage = () => {
   const [viewMode, setViewMode] = useState("multi");
+import { useState } from "react";
+
+const ProductsPage = () => {
+  const [viewMode, setViewMode] = useState("multi");
 
   const products = [
     {

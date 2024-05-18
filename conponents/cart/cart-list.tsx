@@ -15,7 +15,7 @@ const CartList: React.FC<CartListProps> = ({ items, onRemove }) => {
   );
 
   return (
-    <div className="container ">
+    <div className="flex flex-col">
       {items.map((item) => (
         <CartItem key={item.id} item={item} onRemove={onRemove} />
       ))}
