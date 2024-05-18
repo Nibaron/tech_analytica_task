@@ -1,6 +1,7 @@
 import {
   FacebookIcon,
   InstagramIcon,
+  Logo,
   LogoSite,
   PinterestIcon,
   TwitterIcon,
@@ -16,6 +17,7 @@ export const Footer = () => {
           {/** Menu & Logo Container */}
           <div className="flex flex-col items-center space-y-8 md:items-start md:space-y-4">
             {/** Logo */}
+
             <LogoSite />
           </div>
 
