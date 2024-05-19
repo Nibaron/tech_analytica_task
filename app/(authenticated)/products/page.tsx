@@ -44,12 +44,20 @@ const ProductsPage = () => {
               Our All Products
             </span>
             <div className="flex items-center justify-center space-x-4">
-              <div className="group">
+              <div
+                className={`group ${
+                  viewMode === "multi" ? "text-[#525CEB]" : ""
+                }`}
+              >
                 <a href="#" onClick={() => setViewMode("multi")}>
                   <MultiViewIcon />
                 </a>
               </div>
-              <div className="group">
+              <div
+                className={`group ${
+                  viewMode === "single" ? "text-[#525CEB]" : ""
+                }`}
+              >
                 <a href="#" onClick={() => setViewMode("single")}>
                   <SingleViewIcon />
                 </a>

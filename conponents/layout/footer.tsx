@@ -52,8 +52,8 @@ export const Footer = () => {
             </div>
           </div>
 
-          <div className="flex flex-col space-y-4 mr-3 hidden md:block">
-            <div className="justify-start">
+          <div className="space-y-4 mr-3 hidden md:block">
+            <div className="flex flex-col justify-start">
               <p className="text-white p-1 font-semibold">Company</p>
               <p className="text-white p-1 text-sm">about us</p>
               <p className="text-white p-1 text-sm">Carrer</p>
@@ -63,8 +63,8 @@ export const Footer = () => {
             </div>
           </div>
 
-          <div className="flex flex-col space-y-4 hidden md:block">
-            <div className="justify-start">
+          <div className="space-y-4 hidden md:block">
+            <div className="flex flex-col justify-start">
               <p className="text-white p-1 font-semibold">My Account</p>
               <p className="text-white p-1 text-sm">Track My Order</p>
               <p className="text-white p-1 text-sm">View Cart</p>
@@ -74,8 +74,8 @@ export const Footer = () => {
             </div>
           </div>
 
-          <div className="flex flex-col space-y-4 hidden md:block">
-            <div className="justify-start">
+          <div className="space-y-4 hidden md:block">
+            <div className="flex flex-col justify-start">
               <p className="text-white p-1 font-semibold">Customer Service</p>
               <p className="text-white p-1 text-sm">Payment Method</p>
               <p className="text-white p-1 text-sm">Money Return Policy</p>
