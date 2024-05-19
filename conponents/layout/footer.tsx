@@ -1,7 +1,6 @@
 import {
   FacebookIcon,
   InstagramIcon,
-  Logo,
   LogoSite,
   PinterestIcon,
   TwitterIcon,

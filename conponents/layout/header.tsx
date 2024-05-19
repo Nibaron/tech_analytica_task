@@ -1,11 +1,23 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { DashIcon, LogoSite } from "@/assets/icons";
 
 const Header: React.FC = () => {
-  const [activeLink, setActiveLink] = useState<string>("/products");
+  const [activeLink, setActiveLink] = useState<string>("");
+   // Get the active link from local storage on component mount
+   useEffect(() => {
+    const storedActiveLink = localStorage.getItem("activeLink");
+    if (storedActiveLink) {
+      setActiveLink(storedActiveLink);
+    }
+  }, []);
+
+  // Update local storage whenever activeLink changes
+  useEffect(() => {
+    localStorage.setItem("activeLink", activeLink);
+  }, [activeLink]);
   const router = useRouter();
 
   const handleLinkClick = (
